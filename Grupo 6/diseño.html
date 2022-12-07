@@ -1,0 +1,71 @@
+<html>
+<head>
+<style>
+
+</style>
+</head>
+
+<body>
+<center>
+<form name="Mantenimiento" action="mantenimiento.php" method="post">
+<table border="1">
+
+<tr>
+<td colspan="8"><label>Agregar datos</label></td>
+</tr>
+
+<tr><td colspan="8"><label>Registrar Clientes </label></td></tr>
+<tr>
+	<td><label>Primer Nombre</label></td><td><input type="text" value="" maxlength="15" name="txtpnombre"></td>
+    <td><label>Segundo Nombre</label></td><td><input type="text" value="" maxlength="15" name="txtsnombre"></td>
+	<td><label>Edad</label></td><td><input type="text" value="" maxlength="9" size="10" name="txtedad"></td>
+</tr>
+<tr>
+	<td><label>Primer Apellido</label></td><td><input type="text" value="" maxlength="15" name="txtpapellido"></td>
+    <td><label>Segundo Apellido</label></td><td><input type="text" value="" maxlength="15" name="txtsapellido"></td>
+	<td><label>Ciudad</label></td><td><input type="text" value="" maxlength="9" size="15" name="txtciudad"></td>
+</tr>
+
+<tr><td colspan="8" align="center">
+<input type="submit" value="Nuevo" name="limpiardatos" >
+<input type="submit" value="Grabar" name="grabardatos" >
+<input type="submit" value="Modificar" name="modificardatos" >
+<input type="submit" value="Eliminar" name="eliminardatos">
+</td>
+</tr>
+
+<tr><td colspan="8"><label>Listado de Clientes </label></td></tr>
+
+<tr><td><label>Primer Nombre</label></td>
+	<td><label>Segundo Nombre</label></td>
+	<td><label>Primer Apellido</label></td>
+	<td><label>Segundo Apellido</label></td>
+    <td><label>Edad</label></td>
+    <td><label>Ciudad</label></td>
+</tr>
+
+<?php 
+$sql="SELECT * FROM clientes";
+$result=mysqli_query($conn,$sql);
+
+while($mostrar=mysqli_fetch_array($result))
+{
+?>
+<tr> <td><?php echo $mostrar['Primer Nombre'] ?>
+	<td><?php echo $mostrar['Segundo Nombre] ?>
+	<td><?php echo $mostrar['Primer Apellido'] ?>
+	<td><?php echo $mostrar['Segundo Apellido'] ?>
+	<td><?php echo $mostrar['Edad'] ?>
+	<td><?php echo $mostrar['Ciudad'] ?>
+
+</tr>
+<?php
+}
+
+?>
+
+</table>
+</form>
+</center>
+</body>
+</html>
